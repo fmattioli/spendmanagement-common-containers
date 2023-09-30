@@ -36,10 +36,11 @@ services:
         SA_PASSWORD: "SqlServer2019!"
         ACCEPT_EULA: "Y"
         MSSQL_PID: "Express"
-      # volumes:
-      #   - ./data:/var/opt/mssql/data
-      #   - ./data:/var/opt/mssql/log
-      #   - ./secrets:/var/opt/mssql/secrets
+      volumes: 
+          - sqlsystem:/var/opt/mssql/
+          - sqldata:/var/opt/sqlserver/data
+          - sqllog:/var/opt/sqlserver/log
+          - sqlbackup:/var/opt/sqlserver/backup
 
     mongo:
       image: mongo
@@ -82,3 +83,11 @@ services:
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       depends_on:
         - zookeeper
+
+
+volumes:
+  sqlsystem:
+  sqldata:
+  sqllog:
+  sqlbackup:
+  
