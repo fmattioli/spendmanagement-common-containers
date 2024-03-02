@@ -65,9 +65,9 @@ services:
         ZOOKEEPER_CLIENT_PORT: 2181
         ZOOKEEPER_TICK_TIME: 2000
 
-    kafka:
+    kafka-spendmanagement:
       image: 'wurstmeister/kafka:2.13-2.7.0'
-      container_name: kafka
+      container_name: kafka-spendmanagement
       ports:
         - 9092:9092
         - 9094:9094
